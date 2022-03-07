@@ -1,0 +1,15 @@
+<h1>TODO List</h1>
+
+<div class="add-item">
+  <label>
+    Name
+    <input type="text" [(ngModel)]="textValue">
+  </label>
+  <button (click)="addItem()">Add</button>
+</div>
+
+<app-todo [todoList]="todoList" (onDeleteItem)="deleteItem($event)"></app-todo>
+
+<footer>
+  <p>{{ todoList.length }} items</p>
+</footer>

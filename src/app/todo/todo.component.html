@@ -1,0 +1,30 @@
+<!--&lt;!&ndash;<div *ngIf="todo" class="list__item">&ndash;&gt;-->
+<!--<ng-container *ngIf="todo">-->
+
+<!--</ng-container>-->
+
+<!--</div>-->
+
+<ng-container *ngIf="[todoList]">
+  <table class="list">
+    <tr>
+      <th>Name</th>
+      <th>Time</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let todo of todoList"
+    >
+      <td class="list__item__name">
+        <h3 *ngIf="!editMode; else edit">{{ todo.name | upperFirstSymbol}}</h3>
+        <ng-template #edit>
+          <input [(ngModel)]="todo.name">
+        </ng-template>
+      </td>
+      <td class="list__item__date"><p>{{ todo.date | date:'mediumTime'}}</p></td>
+      <td class="list__item__button" (click)="delete(todo.id)"><button>Delete</button></td>
+    </tr>
+    <tr>
+      <td colspan="4" class="list__edit-button"><button (click)="changeEditMode()">{{ editMode? "Save": "Edit" }}</button></td>
+    </tr>
+  </table>
+</ng-container>
