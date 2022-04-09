@@ -1,26 +1,23 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {TodoInterface} from "../app.component";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TodoInterface } from 'src/interface';
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss']
 })
-export class TodoComponent implements OnInit{
+export class TodoComponent implements OnInit {
 
-  @Input() todoList: TodoInterface[] | undefined
+  @Input() todoList: TodoInterface[] = []
   @Output() onDeleteItem = new EventEmitter<number>();
 
   editMode = false
 
-  delete(id: number){
+  delete(id: number) {
     this.onDeleteItem.emit(id)
   }
 
-  changeEditMode(){
-    if(this.editMode){
-
-    }
+  changeEditMode() {
     this.editMode = !this.editMode
   }
 

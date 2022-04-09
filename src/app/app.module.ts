@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
-import {FormsModule} from "@angular/forms";
-import { UpperFirstSymbolPipe } from './todo/upper-first-symbol.pipe';
+import { FormsModule } from "@angular/forms";
+import { UpperFirstLetterPipe } from './todo/upper-first-letter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    UpperFirstSymbolPipe
+    UpperFirstLetterPipe
   ],
   imports: [
     BrowserModule,

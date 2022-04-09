@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-export interface TodoInterface {
-  id: number
-  name: string
-  date: Date
-}
+import { TodoInterface } from 'src/interface';
 
 @Component({
   selector: 'app-root',
@@ -21,14 +16,14 @@ export class AppComponent {
       date: new Date()
     },
     {
-      id:2,
+      id: 2,
       name: "learn 2",
       date: new Date()
     },
   ]
 
-  addItem(){
-    if(this.textValue !== ''){
+  addItem() {
+    if (this.textValue) {
       const newItem = {
         id: this.todoList[this.todoList.length - 1].id + 1,
         name: this.textValue,
@@ -39,7 +34,7 @@ export class AppComponent {
     }
   }
 
-  deleteItem(id: number){
+  deleteItem(id: number) {
     this.todoList = this.todoList?.filter(item => item.id !== id)
   }
 }
